@@ -7,10 +7,10 @@ import os
 import sys
 
 
-name = 'python-emailahoy-3'
+name = 'python-emailahoy3'
 package = 'emailahoy3'
-description = 'A Python 3 email utility that verifies existence of an email address'
-url = 'https://github.com/febrezo/python-emailahoy-3'
+description = 'A Python3 email utility that verifies existence of an email address'
+url = 'https://github.com/febrezo/python-emailahoy3'
 author = 'Val Neekman and Félix Brezo'
 author_email = 'felix.brezo@i3visio.com'
 license = 'BSD'
@@ -25,9 +25,11 @@ classifiers = [
     'Topic :: Communications :: Email',
 ]
 
+
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
-    
+
+
 def get_version(package):
     """
     Return package version as listed in `__version__` in `init.py`.
@@ -76,7 +78,8 @@ setup(
     url=url,
     license=license,
     description=description,
-    long_description = read('README.md'),
+    long_description=read('README.md'),
+    long_description_content_type="text/markdown",
     author=author,
     author_email=author_email,
     packages=get_packages(package),
@@ -84,5 +87,3 @@ setup(
     install_requires=install_requires,
     classifiers=classifiers
 )
-
-
