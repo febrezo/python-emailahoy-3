@@ -4,10 +4,6 @@ Python Email Ahoy 3
 **A Python email utility that verifies existence of an email address**
 
 
-[![build-status-image-fury]][fury]
-[![build-status-image-pypi]][pypi]
-
-
 Overview
 ========
 
@@ -27,7 +23,20 @@ pip3 install python-emailahoy3 --user
 How to use
 =================
 
-Use the class for more control & more granular return status:
+Use the shorthand function for quick check:
+
+```
+from emailahoy3 import verify_email_address
+status =verify_email_address('test@example.com'):
+print(status)
+```
+
+Codes are defined as follows:
+- `1`. The email exists.
+- `0`. The email does not exist.
+- `-1`. The existence of the email could not be verified.
+
+You can also use the class for more control & more granular return status:
 
 ```
 from emailahoy3 import VerifyEmail
@@ -45,15 +54,7 @@ else:
     print >> sys.stderr, "Unverifiable:", status
 ```
 
-Use the shorthand function for quick check:
 
-```
-from emailahoy3 import verify_email_address
-if verify_email_address('test@example.com'):
-    print >> sys.stderr, "Found"
-else:
-    print >> sys.stderr, "Don't care"
-```
 
 Notes
 =================

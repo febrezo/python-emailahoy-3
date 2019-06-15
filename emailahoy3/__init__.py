@@ -1,4 +1,4 @@
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 
 import logging
 import os
@@ -11,7 +11,7 @@ from emailahoy3.exceptions import UnableToVerifyException
 from emailahoy3.exceptions import HostSystemNotSupportedException
 
 
-DEBUG = True
+DEBUG = False
 
 
 __all__ = ['VerifyEmail', 'verify_email_address', 'query_mx']
