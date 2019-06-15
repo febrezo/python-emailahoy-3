@@ -1,4 +1,4 @@
-Python Email Ahoy
+Python Email Ahoy 3
 ====================
 
 **A Python email utility that verifies existence of an email address**
@@ -12,6 +12,8 @@ Overview
 ========
 
 A Python email utility that verifies existence of an email address.
+This package is based on [this](https://github.com/un33k/python-emailahoy) package which only run in Python 2.
+It has been refactored to work in Python 3.
 
 How to install
 ==================
@@ -29,7 +31,7 @@ How to install
 How to use
 =================
 
-``Use the class for more control & more granular return status``
+Use the class for more control & more granular return status
 
     from emailahoy import VerifyEmail
     e = VerifyEmail()
@@ -45,14 +47,15 @@ How to use
     else:
         print >> sys.stderr, "Unverifiable:", status
 
-``Use the shorthand function for quick check``
+Use the shorthand function for quick check:
 
     if verify_email_address('test@example.com'):
         print >> sys.stderr, "Found"
     else:
         print >> sys.stderr, "Don't care"
 
-``Note:``
+Notes
+=================
 
     1. Not all email servers will return the correct status
     2. Checking an invalid email address returns within 1 second
@@ -64,20 +67,9 @@ Running the tests
 
 To run the tests against the current environment:
 
-    python test.py
+    python3 -m unittest discover
 
 License
 ====================
 
 Released under a ([BSD](LICENSE.md)) license.
-
-
-[build-status-image-travis]: https://secure.travis-ci.org/un33k/python-emailahoy.png?branch=master
-[travis]: http://travis-ci.org/un33k/python-emailahoy?branch=master
-
-[build-status-image-fury]: https://badge.fury.io/py/python-emailahoy.png
-[fury]: http://badge.fury.io/py/python-emailahoy
-
-[build-status-image-pypi]: https://pypip.in/d/python-emailahoy/badge.png
-[pypi]: https://crate.io/packages/python-emailahoy?version=latest
-

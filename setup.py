@@ -7,12 +7,12 @@ import os
 import sys
 
 
-name = 'python-emailahoy'
-package = 'emailahoy'
-description = 'A Python email utility that verifies existence of an email address'
-url = 'https://github.com/un33k/python-emailahoy'
-author = 'Val Neekman'
-author_email = 'info@neekware.com'
+name = 'python-emailahoy-3'
+package = 'emailahoy3'
+description = 'A Python 3 email utility that verifies existence of an email address'
+url = 'https://github.com/febrezo/python-emailahoy-3'
+author = 'Val Neekman and Félix Brezo'
+author_email = 'felix.brezo@i3visio.com'
 license = 'BSD'
 install_requires = []
 classifiers = [
@@ -64,9 +64,9 @@ def get_package_data(package):
 if sys.argv[-1] == 'publish':
     os.system("python setup.py sdist upload")
     args = {'version': get_version(package)}
-    print "You probably want to also tag the version now:"
-    print "  git tag -a %(version)s -m 'version %(version)s'" % args
-    print "  git push --tags"
+    print("You probably want to also tag the version now:")
+    print("  git tag -a %(version)s -m 'version %(version)s'" % args)
+    print("  git push --tags")
     sys.exit()
 
 

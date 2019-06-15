@@ -28,7 +28,7 @@ class TestEmailVerificationFunctions(unittest.TestCase):
                         )
 
         self.log.debug(status)
-        self.assertEquals(self.e.EMAIL_NOT_FOUND, status)
+        self.assertEqual(self.e.EMAIL_NOT_FOUND, status)
 
     def test_class_based_valid_email(self):
         """ Test the existence of a valid email address (class based)"""
@@ -42,7 +42,7 @@ class TestEmailVerificationFunctions(unittest.TestCase):
                         )
 
         self.log.debug(status)
-        self.assertEquals(self.e.EMAIL_FOUND, status)
+        self.assertEqual(self.e.EMAIL_FOUND, status)
 
     def test_function_based_invalid_email(self):
         """ Test the existence of an invalid email address (function based)"""
@@ -57,7 +57,7 @@ class TestEmailVerificationFunctions(unittest.TestCase):
                         )
 
         # email doesn't exists
-        self.assertEquals(found, False)
+        self.assertEqual(found, False)
 
 
     def test_function_based_valid_email(self):
@@ -72,7 +72,7 @@ class TestEmailVerificationFunctions(unittest.TestCase):
                             from_email='info@neekware.com'
                         )
         # email exists
-        self.assertEquals(found, True)
+        self.assertEqual(found, True)
 
 
     def test_mx_query_invalid_domain(self):
@@ -81,7 +81,7 @@ class TestEmailVerificationFunctions(unittest.TestCase):
         domain = 'invalid_domain_address.com'
         self.log.debug("Testing MX Query for invalid domain (%s)" % domain)
         mx = query_mx(domain)
-        self.assertEquals(len(mx), 0)
+        self.assertEqual(len(mx), 0)
 
 
     def test_mx_query_valid_domain(self):

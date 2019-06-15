@@ -1,3 +1,12 @@
+## 0.1.0
+
+Enhacement:
+
+  - Support for Python3
+  - Improved error management
+  - Added exceptions
+  - Added logging capabilities
+
 ## 0.0.6
 
 Bugfixes:
