@@ -1,4 +1,4 @@
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 
 import logging
 import os
@@ -131,10 +131,13 @@ class VerifyEmail(object):
             HostSystemNotSupportedException.
             UnableToVerifyException.
         """
-        logging.basicConfig(level=logging.DEBUG)
+        if DEBUG:
+            logging.basicConfig(level=logging.DEBUG)
+        else:
+            logging.basicConfig(level=logging.INFO)
 
         if not EMAIL_RE.search(email):
-            logging.error(f"'{email}' is not a valid email")
+            logging.debug(f"'{email}' is not a valid email")
             return self.EMAIL_NOT_FOUND
 
         try:
@@ -142,20 +145,19 @@ class VerifyEmail(object):
             socket.gethostbyname(hostname)
             mail_exchangers = query_mx(hostname)
         except Exception as e:
-            logging.error(e)
+            logging.debug(e)
             raise e
 
         logging.debug(f"Found mail exchangers: {mail_exchangers}")
         for i, mx in enumerate(mail_exchangers):
             mx_name = mx[1]
-            logging.debug("-----------------------------------------")
             logging.debug(f"Testing {mx_name} (#{i})...")
 
             logging.debug(f"\tConnecting to {mx_name}")
             server = self.connect(mx_name)
 
             if not server:
-                logging.error("\tCould not get connected to server.")
+                logging.debug("\tCould not get connected to server.")
                 continue
 
             if DEBUG:

@@ -27,7 +27,7 @@ Use the shorthand function for quick check:
 
 ```
 from emailahoy3 import verify_email_address
-status =verify_email_address('test@example.com'):
+status =verify_email_address('test@example.com')
 print(status)
 ```
 
